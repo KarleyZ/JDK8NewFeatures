@@ -19,6 +19,14 @@ public class ConstractMethodReference {
         * 语法：
         *   数据类型[]::new
         * */
+        //Lambda
+        int[] a = createArray(3, n -> {
+            return new int[n];
+        });
+        System.out.println(a.length);
+        //方法引用
+        int[] b= createArray(6,int[]::new);
+        System.out.println(b.length);
 
     }
     public static void sayHello(String name, StudentInfo studentInfo){
@@ -26,4 +34,7 @@ public class ConstractMethodReference {
         System.out.println(s.toString());
     }
 
+    public static int[] createArray(int n,ArrayBuilder arrayBuilder){
+        return arrayBuilder.build(n);
+    }
 }
